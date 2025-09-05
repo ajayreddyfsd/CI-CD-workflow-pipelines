@@ -1,1 +1,1 @@
-CI/CD workflow pipelines
+CI/CD workflow pipelines specific to GitHub Actions
