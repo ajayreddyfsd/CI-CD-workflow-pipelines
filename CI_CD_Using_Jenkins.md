@@ -57,6 +57,7 @@ pipeline {
         }
     }
 }
+```
 
 ---
 
@@ -85,5 +86,6 @@ Open Jenkins UI → create a job or pipeline
 Add Jenkinsfile to define steps (build, test, deploy)
 Run manually or set up automatic triggers
 Use optional features to make your pipeline more powerful
+
 
 
