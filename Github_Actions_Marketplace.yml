@@ -1,0 +1,73 @@
+name: Simple Marketplace CI   # Name of this workflow
+
+# When should this workflow run?
+on:
+  push:
+    branches: [ main ]   # Run when code is pushed to main branch
+  pull_request:
+    branches: [ main ]   # Run when someone opens a PR to main
+
+jobs:
+  build:   # Job: a big task
+    runs-on: ubuntu-latest   # Run this job on a Linux machine
+
+    steps:   # Steps: small instructions that run one by one
+
+      # -------------------------------
+      # Step 1: Get code from GitHub
+      # -------------------------------
+      - name: Checkout code
+        uses: actions/checkout@v4   # <-- This is from the GitHub Actions Marketplace
+        # Marketplace action explanation: gets all your code from your repository
+        # You don’t have to write it yourself, it’s ready-made
+
+      # -------------------------------
+      # Step 2: Set up Node.js
+      # -------------------------------
+      - name: Setup Node.js
+        uses: actions/setup-node@v4   # <-- Marketplace action
+        with:
+          node-version: '20'   # Pick Node version
+        # Marketplace action explanation: installs Node.js so we can run JS code
+
+      # -------------------------------
+      # Step 3: Set up MongoDB
+      # -------------------------------
+      - name: Setup MongoDB
+        uses: supercharge/mongodb-github-action@1.11.0   # <-- Marketplace action
+        with:
+          mongodb-version: '7.0'
+        # Marketplace action explanation: installs MongoDB for your tests
+        # Saves you from installing MongoDB manually
+
+      # -------------------------------
+      # Step 4: Cache node_modules
+      # -------------------------------
+      - name: Cache node libraries
+        uses: actions/cache@v3   # <-- Marketplace action
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+        # Marketplace action explanation: saves installed libraries so next runs are faster
+
+      # -------------------------------
+      # Step 5: Install libraries (your code)
+      # -------------------------------
+      - name: Install dependencies
+        run: npm install
+        # This is your command, not from Marketplace
+        # Installs all libraries your project needs
+
+      # -------------------------------
+      # Step 6: Run tests
+      # -------------------------------
+      - name: Run tests
+        run: npm test
+        # Your command: makes sure your code works
+
+      # -------------------------------
+      # Step 7: Build project
+      # -------------------------------
+      - name: Build project
+        run: npm run build --prefix client
+        # Your command: prepares the client code to run
