@@ -1,0 +1,35 @@
+# This is a GitHub Actions workflow file for Continuous Integration (CI)
+# It will run every time you push code to the repository
+
+name: Simple CI Workflow # Name of this workflow
+
+# When should this workflow run?
+on:
+  push: # Run when you push code to any branch
+    branches:
+      - main # Only run when pushing to the 'main' branch
+  pull_request: # Also run when someone opens a pull request
+
+# Jobs are like tasks that this workflow will do
+#! currently this pipeline has only one job - "build job"
+jobs:
+  build: # Name of the job
+    runs-on: ubuntu-latest # The type of machine to use (Linux in this case)
+
+    steps: # Steps are like a list of things to do
+      - name: Check out code # First, get the code from your repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js # Set up Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20" # Use Node.js version 20
+
+      - name: Install dependencies # Install project libraries
+        run: npm install
+
+      - name: Run tests # Run your tests to make sure code works
+        run: npm test
+
+      - name: Build project # Optional: build your project
+        run: npm run build
