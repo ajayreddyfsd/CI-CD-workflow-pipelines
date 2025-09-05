@@ -63,29 +63,30 @@ pipeline {
 
 ### 4. Run Your Pipeline
 
-You can run manually from the Jenkins UI Or automate triggers:
-Run when code is pushed to GitHub
-Run on a schedule (daily builds)
-Run when a pull request is created
+1. You can run manually from the Jenkins UI Or automate triggers:
+2. Run when code is pushed to GitHub, 
+3. Run on a schedule (daily builds), 
+4. Run when a pull request is created
 
 ---
 
 ### 5. Optional Features
 
-Parallel builds → run tests for multiple environments at the same time
-Notifications → Slack, email, etc. when build succeeds or fails
-Archiving → save build artifacts or test reports
-Agents / Nodes → add multiple machines to run builds if needed
+1. Parallel builds → run tests for multiple environments at the same time, 
+2. Notifications → Slack, email, etc. when build succeeds or fails, 
+3. Archiving → save build artifacts or test reports, 
+4. Agents / Nodes → add multiple machines to run builds if needed
 
 ---
 
 ### Summary
 
-Install Jenkins
-Open Jenkins UI → create a job or pipeline
-Add Jenkinsfile to define steps (build, test, deploy)
-Run manually or set up automatic triggers
-Use optional features to make your pipeline more powerful
+1. Install Jenkins
+2. Open Jenkins UI → create a job or pipeline
+3. Add Jenkinsfile to define steps (build, test, deploy)
+4. Run manually or set up automatic triggers
+5. Use optional features to make your pipeline more powerful
+
 
 
 
