@@ -58,9 +58,7 @@ pipeline {
     }
 }
 
-
 ---
-
 
 ### 4. Run Your Pipeline
 
@@ -69,9 +67,7 @@ Run when code is pushed to GitHub
 Run on a schedule (daily builds)
 Run when a pull request is created
 
-
 ---
-
 
 ### 5. Optional Features
 
@@ -80,9 +76,7 @@ Notifications → Slack, email, etc. when build succeeds or fails
 Archiving → save build artifacts or test reports
 Agents / Nodes → add multiple machines to run builds if needed
 
-
 ---
-
 
 ### Summary
 
@@ -91,4 +85,5 @@ Open Jenkins UI → create a job or pipeline
 Add Jenkinsfile to define steps (build, test, deploy)
 Run manually or set up automatic triggers
 Use optional features to make your pipeline more powerful
+
 
